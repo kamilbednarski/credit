@@ -70,7 +70,7 @@ int main(void)
 
 
     //Checking card with Luhn's Algorithm
-    int status = validateCard(digit_storage, digit_counter);
+    int status = validateCard(inverted_digit_storage, digit_counter);
     //printf("status: %i\n", status);
 
     //Checking card company.
@@ -145,7 +145,7 @@ int calculateProductsDigits(int number_of_digits, int card_nr[])
      * starting with the number's second-to-last digit,
      * and then adding those products’ digits together.
      */
-    for (int i = 0; i < number_of_digits; i += 2)
+    for (int i = 1; i < number_of_digits; i += 2)
     {
         if (card_nr[i] * 2 > 9)
         {
@@ -182,7 +182,7 @@ int calculateProductsDigits(int number_of_digits, int card_nr[])
     /*
      * Calculating sum of the digits that weren't multiplied by 2.
      */
-    for (int i = 1; i < number_of_digits; i += 2)
+    for (int i = 0; i < number_of_digits; i += 2)
     {
         sum_of_evens = sum_of_evens + card_nr[i];
         //printf("\n#############\n");
